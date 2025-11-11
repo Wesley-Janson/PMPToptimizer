@@ -1,0 +1,14 @@
+Package: PMPToptimizer
+Title: Produce Efficient Frontiers and Portfolio Composition With Weighted Covariance
+Version: 0.0.0.9000
+Authors@R: 
+    person("Wesley", "Janson", , "wr.janson@gmail.com", role = c("aut", "cre"))
+    person("Nathan", "Grasse", , "NathanGrasse@cunet.carleton.ca", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+	quadprog (>= 1.5-8),	openxlsx (>= 4.2.8.1),	tidyverse (>= 2.0.0),	readxl (>= 1.4.5)
