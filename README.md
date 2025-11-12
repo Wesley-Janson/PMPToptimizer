@@ -8,3 +8,9 @@ You can install the development version of PMPToptimizer from [GitHub](https://g
 # install.packages("devtools")
 devtools::install_github("Wesley-Janson/PMPToptimizer")
 ```
+To inspect the three functions, run the following three lines of code one at a time:
+```r
+?PMPToptimizer::optimal_portfolio()
+?PMPToptimizer::efficient_frontier()
+?PMPToptimizer::portfolio_composition()
+```
