@@ -5,7 +5,7 @@
 #' This function selects the optimal municipal revenue portfolio based on parameter 
 #' values given (Optionally with semivariance weighting).
 #'
-#' @param returns_data (dataframe): Input dataframe for which optimal portfolio is selected from.
+#' @param in_data (dataframe): Input dataframe for which optimal portfolio is selected from.
 #' @param target_return (numeric/vector): Optional parameter that constraints optimal portfolio to have specific return. 
 #'         Default is NULL.
 #' @param up_weight (numeric): Optional parameter that sets upside weight in asymmetric risk. Default is NULL, 
@@ -21,10 +21,10 @@
 #'                expected_return (numeric): Expected return of optimal portfolio, given optimal weights 
 #'                    and mean returns of each revenue category. 
 #' @export
-optimal_portfolio <- function(returns_data, target_return=NULL, up_weight=NULL, down_weight=NULL, split=0, verbose=TRUE){
+optimal_portfolio <- function(in_data, target_return=NULL, up_weight=NULL, down_weight=NULL, split=0, verbose=TRUE){
   ### Remove any columns with all zeros, print message if columns are removed
-  zero_cols <- names(na.omit(returns_data))[sapply(na.omit(returns_data), function(col) all(col == 0, na.rm = TRUE))]
-  returns_data <- returns_data[, !names(returns_data) %in% zero_cols]
+  zero_cols <- names(na.omit(in_data))[sapply(na.omit(in_data), function(col) all(col == 0, na.rm = TRUE))]
+  returns_data <- in_data[, !names(in_data) %in% zero_cols]
   if (length(zero_cols) > 0 & verbose==TRUE) {
     message("Columns removed due to only having zero values: ", paste(zero_cols, collapse = ", "))
   }
