@@ -6,7 +6,7 @@
 #' given municipal revenue data. In the event that an optimal portfolio cannot be
 #' solved for, an NA value is passed on and that (risk, return) xy-point is not plotted.
 #'
-#' @param returns_data (dataframe): Input dataframe for which optimal portfolio is selected from.
+#' @param in_data (dataframe): Input of percent change dataframe for which optimal portfolio is selected from.
 #' @param target_return (numeric/vector): Optional parameter that constraints optimal portfolio to have specific return. 
 #'         Default is NULL.
 #' @param up_weight (numeric): Optional parameter that sets upside weight in asymmetric risk. Default is NULL, 
@@ -20,23 +20,23 @@
 #'                     as denoted in the plot., 
 #'                efficient_frontier_plot (ggplot figure): ggplot figure of efficient frontier. 
 #' @export
-efficient_frontier <- function(returns_data, up_weight=NULL, down_weight=NULL, verbose=TRUE){
+efficient_frontier <- function(in_data, up_weight=NULL, down_weight=NULL, verbose=TRUE){
   # Get the overall optimal portfolio
-  optimal_portfolio_total <- asymmetricrisk::optimal_portfolio(returns_data, up_weight=up_weight, down_weight=down_weight)
+  optimal_portfolio_total <- asymmetricrisk::optimal_portfolio(in_data, up_weight=up_weight, down_weight=down_weight)
   optimal_portfolio_total$minimum_risk <- sqrt(optimal_portfolio_total$minimum_risk)
   optimal_portfolio_df <- data.frame(Risk = optimal_portfolio_total$minimum_risk, 
                                      Return = optimal_portfolio_total$expected_return, 
                                      Label = "Optimal Portfolio")
   
   # Sequence of expected returns for the efficient frontier
-  expected_returns <- seq(min(colMeans(na.omit(returns_data))), max(colMeans(na.omit(returns_data))), length.out = 100)
+  expected_returns <- seq(min(colMeans(na.omit(in_data))), max(colMeans(na.omit(in_data))), length.out = 100)
   expected_returns <- expected_returns[expected_returns>= optimal_portfolio_df$Return]
   
   # Compute the efficient frontier portfolios using apply()
   # If no solution can be found, pass on as NA
   efficient_frontier_data <- lapply(expected_returns, function(return_i) {
     tryCatch({
-      optimal_portfolio_i <- asymmetricrisk::optimal_portfolio(returns_data, return_i, up_weight=up_weight, down_weight=down_weight, verbose=verbose)
+      optimal_portfolio_i <- asymmetricrisk::optimal_portfolio(in_data, return_i, up_weight=up_weight, down_weight=down_weight, verbose=verbose)
       data.frame(Risk = optimal_portfolio_i$minimum_risk, Return = optimal_portfolio_i$expected_return)
     }, error = function(e) {
       message("Error encountered for return_i = ", return_i, ": ", e$message)
