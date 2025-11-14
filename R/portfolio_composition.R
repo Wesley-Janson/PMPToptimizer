@@ -5,7 +5,7 @@
 #' This function generates stacked bar chart displaying portfolio composition 
 #' given a target return rate.
 #'
-#' @param returns_data (dataframe): Input dataframe for which optimal portfolio is selected from.
+#' @param in_data (dataframe): Input dataframe for which optimal portfolio is selected from.
 #' @param target_return (numeric/vector): Optional parameter that constraints optimal portfolio to have specific return. 
 #'         Default is NULL.
 #' @param up_weight (numeric): Optional parameter that sets upside weight in asymmetric risk. Default is NULL, 
@@ -17,20 +17,20 @@
 #' @return (list) composition_plot_data (dataframe): Corresponding data for all efficient frontiers., 
 #'                composition_plot (ggplot figure): ggplot figure of efficient frontiers.
 #' @export
-portfolio_composition <- function(returns_data, up_weight = NULL, down_weight = NULL, verbose=TRUE){
+portfolio_composition <- function(in_data, up_weight = NULL, down_weight = NULL, verbose=TRUE){
   # Get the overall optimal portfolio
-  optimal_portfolio_total <- asymmetricrisk::optimal_portfolio(returns_data, up_weight=up_weight, down_weight=down_weight)
+  optimal_portfolio_total <- asymmetricrisk::optimal_portfolio(in_data, up_weight=up_weight, down_weight=down_weight)
   optimal_portfolio_return <- optimal_portfolio_total$expected_return
   
   # Sequence of expected returns (x-axis of figure)
-  expected_returns <- seq(min(colMeans(na.omit(returns_data))), max(colMeans(na.omit(returns_data))), length.out = 100)
+  expected_returns <- seq(min(colMeans(na.omit(in_data))), max(colMeans(na.omit(in_data))), length.out = 100)
   expected_returns <- expected_returns[expected_returns>= optimal_portfolio_return]
   
   # Compute the efficient frontier portfolios using apply()
   # If no solution can be found, pass on as NA
   portfolio_composition_data <- lapply(expected_returns, function(return_i) {
     tryCatch({
-      optimal_portfolio <- asymmetricrisk::optimal_portfolio(returns_data, return_i, up_weight = up_weight, down_weight = down_weight, verbose=verbose)
+      optimal_portfolio <- asymmetricrisk::optimal_portfolio(in_data, return_i, up_weight = up_weight, down_weight = down_weight, verbose=verbose)
       list(Return = return_i, Weights = optimal_portfolio$weights)
     }, error = function(e) {
       message("Error encountered for return_i = ", return_i, ": ", e$message)
