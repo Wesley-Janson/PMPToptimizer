@@ -4,7 +4,7 @@
 ## Installation
 You can install the development version of PMPToptimizer from [GitHub](https://github.com/) with the following R command(s):
 ```r
-# Install package "devtools" if not previously installed
+### Install package "devtools" if not previously installed
 # install.packages("devtools")
 devtools::install_github("Wesley-Janson/PMPToptimizer")
 ```
