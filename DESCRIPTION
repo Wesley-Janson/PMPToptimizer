@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Wesley", "Janson", , "wr.janson@gmail.com", role = c("aut", "cre"))
     person("Nathan", "Grasse", , "NathanGrasse@cunet.carleton.ca", role = c("aut", "cre"))
-Description: What the package does (one paragraph). This package implements asymmetric portfolio optimization using mean-weighted variance (and co-variance) methodology. Users can identify a theoretically efficient frontier based on their prefered performance (growth) target and risk tolerance (including only upside or downside semi-variance models). The package will also identify the composition of frontier portfolios across the range of possible return/risk.
+Description: This package implements asymmetric portfolio optimization using mean-weighted variance (and co-variance) methodology. Users can identify a theoretically efficient frontier based on their prefered performance (growth) target and risk tolerance (including only upside or downside semi-variance models). The package will also identify the composition of frontier portfolios across the range of possible return/risk.
 License: `use_mit_license()` or `use_gpl3_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
