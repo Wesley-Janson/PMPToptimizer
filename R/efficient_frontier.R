@@ -2,14 +2,14 @@
 ###########################################################################
 #' Efficient Frontier Function
 #'
-#' This function to create efficient frontier, with corresponding data and plot, for
-#' given municipal revenue data. In the event that an optimal portfolio cannot be
+#' This function creates an efficient frontier, with corresponding data and plot, for
+#' given data. In the event that an optimal portfolio cannot be
 #' solved for, an NA value is passed on and that (risk, return) xy-point is not plotted.
 #'
-#' @param in_data (dataframe): Input of percent change dataframe for which optimal portfolio is selected from.
-#' @param target_return (numeric/vector): Optional parameter that constraints optimal portfolio to have specific return. 
+#' @param in_data (dataframe): Input of percent change dataframe from which the optimal portfolio is selected.
+#' @param target_return (numeric/vector): Optional parameter that constrains the optimal portfolio to have a specific return. 
 #'         Default is NULL.
-#' @param up_weight (numeric): Optional parameter that sets upside weight in asymmetric risk. Default is NULL, 
+#' @param up_weight (numeric): Optional parameter that sets the upside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
 #' @param down_weight (numeric): Optional parameter that sets downside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
