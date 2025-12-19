@@ -1,5 +1,5 @@
 Package: PMPToptimizer
-Title: Identify Efficient Frontiers and Portfolio Composition With Weighted Variance & Covariance
+Title: Identify Efficient Frontiers and Frontier Composition With Weighted Variance & Covariance
 Version: 0.0.0.9000
 Authors@R: 
     person("Wesley", "Janson", , "wr.janson@gmail.com", role = c("aut", "cre"))
