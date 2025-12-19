@@ -2,17 +2,17 @@
 ###########################################################################
 #' Generate Optimal Portfolio
 #'
-#' This function selects the optimal municipal revenue portfolio based on parameter 
-#' values given (Optionally with semivariance weighting).
+#' This function selects the optimal portfolio based on parameter 
+#' values given (setting the performance target and optionally with weighed risk).
 #'
-#' @param in_data (dataframe): Input dataframe for which optimal portfolio is selected from.
-#' @param target_return (numeric/vector): Optional parameter that constraints optimal portfolio to have specific return. 
+#' @param in_data (dataframe): Input dataframe from which optimal portfolio is selected.
+#' @param target_return (numeric/vector): Optional parameter that constrains the optimal portfolio to have a specific return. 
 #'         Default is NULL.
-#' @param up_weight (numeric): Optional parameter that sets upside weight in asymmetric risk. Default is NULL, 
+#' @param up_weight (numeric): Optional parameter that sets the upside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
-#' @param down_weight (numeric): Optional parameter that sets downside weight in asymmetric risk. Default is NULL, 
+#' @param down_weight (numeric): Optional parameter that sets the downside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
-#' @param split (numeric/character): Optional parameter that is threshold that determines where to split data between upside 
+#' @param split (numeric/character): Optional parameter that is a threshold that determines where to split data between upside 
 #'         and downside risk. Can be a numeric value or 'mean'/'median'. Default is 0.
 #' @param verbose (boolean): Print informative messages about removed columns.
 #' 
