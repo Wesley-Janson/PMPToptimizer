@@ -2,10 +2,10 @@
 ###########################################################################
 #' Generate Optimal Portfolio
 #'
-#' This function selects the optimal portfolio based on parameter 
+#' This function selects the optimal portfolio based on the parameter 
 #' values given (setting the performance target and optionally with weighed risk).
 #'
-#' @param in_data (dataframe): Input dataframe from which optimal portfolio is selected.
+#' @param in_data (dataframe): Input dataframe from which the optimal portfolio is selected.
 #' @param target_return (numeric/vector): Optional parameter that constrains the optimal portfolio to have a specific return. 
 #'         Default is NULL.
 #' @param up_weight (numeric): Optional parameter that sets the upside weight in asymmetric risk. Default is NULL, 
@@ -22,7 +22,7 @@
 #'                    and mean returns of each revenue category. 
 #' @export
 optimal_portfolio <- function(in_data, target_return=NULL, up_weight=NULL, down_weight=NULL, split=0, verbose=TRUE){
-  ### Remove any columns with all zeros, print message if columns are removed
+  ### Remove any columns with all zeros, print a message if columns are removed
   zero_cols <- names(na.omit(in_data))[sapply(na.omit(in_data), function(col) all(col == 0, na.rm = TRUE))]
   returns_data <- in_data[, !names(in_data) %in% zero_cols]
   if (length(zero_cols) > 0 & verbose==TRUE) {
