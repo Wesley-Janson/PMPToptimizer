@@ -2,14 +2,14 @@
 ###########################################################################
 #' Portfolio Composition Across Return Spectrum Function
 #'
-#' This function generates stacked bar chart displaying portfolio composition 
+#' This function generates a stacked bar chart displaying portfolio composition 
 #' given a target return rate.
 #'
-#' @param in_data (dataframe): Input dataframe for which optimal portfolio is selected from.
-#' @param target_return (numeric/vector): Optional parameter that constraints optimal portfolio to have specific return. 
+#' @param in_data (dataframe): Input dataframe from which the optimal portfolio is selected.
+#' @param target_return (numeric/vector): Optional parameter that constrains the optimal portfolio to have a specific return. 
 #'         Default is NULL.
-#' @param up_weight (numeric): Optional parameter that sets upside weight in asymmetric risk. Default is NULL, 
-#'         which equates to a symmetric portfolio.
+#' @param up_weight (numeric): Optional parameter that sets the upside weight in asymmetric risk. Default is NULL, 
+#'         which equates to a symmetric portfolio (utilizing the variance/covariance).
 #' @param down_weight (numeric): Optional parameter that sets downside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
 #' @param verbose (boolean): Print informative messages about removed columns.
