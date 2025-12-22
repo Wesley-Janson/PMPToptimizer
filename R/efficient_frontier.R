@@ -2,11 +2,11 @@
 ###########################################################################
 #' Efficient Frontier Function
 #'
-#' efficient_frontier() creates an efficient frontier, with corresponding data and plot, for
+#' $efficient_frontier()$ creates an efficient frontier, with corresponding data and plot, for
 #' given data. In the event that an optimal portfolio cannot be
 #' solved for, an NA value is passed on and that (risk, return) xy-point is not plotted.
 #'
-#' @param in_data Input data frame, list or environment (or object coercible by as.data.frame to a data frame) of percent change dataframe from which the optimal portfolio is selected.
+#' @param in_data Input data frame, list or environment (or object coercible by $as.data.frame$ to a data frame) of percent change dataframe from which the optimal portfolio is selected.
 #' @param target_return Optional numeric parameter that constrains the optimal portfolio to have a specific return. 
 #'         Default is NULL.
 #' @param up_weight Optional numeric parameter that sets the upside weight in asymmetric risk. Default is NULL, 
