@@ -2,7 +2,7 @@
 ###########################################################################
 #' Efficient Frontier Function
 #'
-#' This function creates an efficient frontier, with corresponding data and plot, for
+#' efficient_frontier() creates an efficient frontier, with corresponding data and plot, for
 #' given data. In the event that an optimal portfolio cannot be
 #' solved for, an NA value is passed on and that (risk, return) xy-point is not plotted.
 #'
