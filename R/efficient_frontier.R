@@ -7,13 +7,13 @@
 #' solved for, an NA value is passed on and that (risk, return) xy-point is not plotted.
 #'
 #' @param in_data data	input data frame, list or environment (or object coercible by as.data.frame to a data frame) of percent change dataframe from which the optimal portfolio is selected.
-#' @param target_return (numeric/vector): Optional parameter that constrains the optimal portfolio to have a specific return. 
+#' @param target_return Optional numeric parameter that constrains the optimal portfolio to have a specific return. 
 #'         Default is NULL.
-#' @param up_weight (numeric): Optional parameter that sets the upside weight in asymmetric risk. Default is NULL, 
+#' @param up_weight Optional numeric parameter that sets the upside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
-#' @param down_weight (numeric): Optional parameter that sets downside weight in asymmetric risk. Default is NULL, 
+#' @param down_weight Optional numeric parameter that sets downside weight in asymmetric risk. Default is NULL, 
 #'         which equates to a symmetric portfolio.
-#' @param verbose (boolean): Print informative messages about removed columns.
+#' @param verbose Optional logical. If TRUE, prints informative messages about removed columns. Default value is TRUE.
 #' 
 #' @return (list) plot_data (dataframe): Corresponding data for efficient frontier.,
 #'                optimal_portfolio (dataframe): (Risk, Return) coordinates corresponding to optimal portfolio 
